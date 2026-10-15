@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta Meteorológica</title>
+    <link rel="stylesheet" href="sistema/css/style.css">
+    <script src="sistema/js/script.js" defer></script>
+</head>
+<body>
+    <h1>Busca por cidade no Geocoding API</h1>
+	<form id="formulario">
+		<label for="name">Digite o nome da cidade/região desejada:</label>
+		<input type="text" id="name" name="name" required>
+		<button type="submit" id="buscar">Buscar</button>
+	</form>
+
+	<p id="mensagem" role="status"></p>
+	<div id="locals">
+		<ul id="resultado"></ul>
+	</div>
+</body>
+</html>
