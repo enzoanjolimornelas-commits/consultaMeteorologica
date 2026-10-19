@@ -3,3 +3,347 @@
     padding: 0;
     margin: 0;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    color: #2d3748;
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    padding-top: 70px; 
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('../img/background.webp') no-repeat center / cover;
+    filter: blur(10px);
+    transform: scale(1.06);
+    z-index: -1;
+}
+
+#favoritos {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 24px;
+    list-style: none;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: thin;
+}
+
+#favoritos:empty {
+    display: none;
+}
+
+#favoritos h2 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #4a5568;
+    margin-right: 6px;
+}
+
+#favoritos li {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #2d3748;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#favoritos li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+#favoritos li img {
+    width: 14px;
+    height: 14px;
+    opacity: 0.55;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#favoritos li img:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 2.5rem 2rem;
+    margin: 1.5rem auto;
+    max-width: 860px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 1.5rem;
+}
+
+.barra-pesquisa {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 9999px;
+    padding: 12px 24px;
+    width: 100%;
+    max-width: 580px;
+    margin: 0 auto;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.barra-pesquisa:focus-within {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+}
+
+.barra-pesquisa #botao {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin-right: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #4a5568;
+    transition: color 0.2s ease;
+}
+
+.barra-pesquisa #botao:hover {
+    color: #1a202c;
+}
+
+.barra-pesquisa #pesquisa {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 1.05rem;
+    color: #2d3748;
+    font-family: inherit;
+}
+
+.barra-pesquisa #pesquisa::placeholder {
+    color: #718096;
+}
+
+#feedback:empty {
+    display: none;
+}
+
+#feedback {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    max-width: 860px;
+    margin: 0 auto 1.5rem auto;
+    padding: 1rem 1.5rem;
+    border-radius: 14px;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+}
+
+#lista {
+    list-style: none;
+    max-width: 860px;
+    margin: 0 auto 1.5rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#lista li {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    padding: 14px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#lista li:hover {
+    background: #ffffff;
+    transform: translateX(5px);
+}
+
+main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1rem 3rem 1rem;
+}
+
+#hoje:empty {
+    display: none;
+}
+
+#hoje {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 2.2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+#hoje h2 {
+    font-size: 1.5rem;
+    color: #1a202c;
+    margin-bottom: 0.4rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#hoje #estrela {
+    vertical-align: middle;
+    margin-left: 10px;
+    transition: transform 0.2s ease;
+}
+
+#hoje #estrela:hover {
+    transform: scale(1.2);
+}
+
+#hoje > div:first-of-type {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #2b6cb0;
+    margin: 0.6rem 0 1.2rem 0;
+    text-transform: capitalize;
+}
+
+#hoje > div:last-of-type {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 14px;
+    margin-top: 1rem;
+}
+
+#hoje > div:last-of-type div {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+#proximos-dias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+#proximos-dias:empty {
+    display: none;
+}
+
+#proximos-dias h2 {
+    width: 100%;
+    color: #ffffff;
+    font-size: 1.4rem;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+    margin-bottom: 0.5rem;
+}
+
+#proximos-dias > div {
+    flex: 1 1 calc(20% - 16px);
+    min-width: 145px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 18px;
+    padding: 1.4rem 1rem;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#proximos-dias > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+#proximos-dias > div p strong {
+    color: #1a202c;
+    font-size: 1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+footer a {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1.5rem 1rem;
+        margin: 1rem;
+    }
+
+    #proximos-dias > div {
+        flex: 1 1 calc(50% - 16px);
+    }
+}
+
+@media (max-width: 480px) {
+    #proximos-dias > div {
+        flex: 1 1 100%;
+    }
+}

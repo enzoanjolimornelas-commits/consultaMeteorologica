@@ -94,7 +94,7 @@ async function buscarLocalidades(local) {
                         item.addEventListener('click', function(event){
                             event.preventDefault();
 
-                            consultarClima(local.latitude, local.longitude, local.name, local.country)
+                            consultarClima(local.latitude, local.longitude, local.name, local.country);
                         })
 						resultados.appendChild(item);
 					});
@@ -195,6 +195,11 @@ async function consultarClima(lat, lon, nomeCidade, pais) {
 				</div>
 			`;
 		}
+
+		divClima.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start'
+		});
     } catch (erro) {
         feedback.innerHTML = `<p>Erro: ${erro.message || erro}</p>`;
     }
