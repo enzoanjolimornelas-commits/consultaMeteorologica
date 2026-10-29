@@ -41,6 +41,37 @@ const descricoesClima = {
 			99: 'Tempestade com granizo forte'
 };
 
+const estiloClima = {
+			0: 'sistema/img/icones/ensolarado.png',
+			1: 'sistema/img/icones/ensolarado.png',
+			2: 'sistema/img/icones/nublado.png',
+			3: 'sistema/img/icones/nublado.png',
+			45: 'sistema/img/icones/nevoeiro.png',
+			48: 'sistema/img/icones/nevoeiro.png',
+			51: 'sistema/img/icones/chuva.png',
+			53: 'sistema/img/icones/chuva.png',
+			55: 'sistema/img/icones/chuva.png',
+			56: 'sistema/img/icones/chuva.png',
+			57: 'sistema/img/icones/chuva.png',
+			61: 'sistema/img/icones/chuva.png',
+			63: 'sistema/img/icones/chuva.png',
+			65: 'sistema/img/icones/chuva.png',
+			66: 'sistema/img/icones/chuva.png',
+			67: 'sistema/img/icones/chuva.png',
+			71: 'sistema/img/icones/neve.png',
+			73: 'sistema/img/icones/neve.png',
+			75: 'sistema/img/icones/neve.png',
+			77: 'sistema/img/icones/neve.png',
+			80: 'sistema/img/icones/chuva.png',
+			81: 'sistema/img/icones/chuva.png',
+			82: 'sistema/img/icones/chuva.png',
+			85: 'sistema/img/icones/neve.png',
+			86: 'sistema/img/icones/neve.png',
+			95: 'sistema/img/icones/tempestade.png',
+			96: 'sistema/img/icones/granizo.png',
+			99: 'sistema/img/icones/granizo.png',
+}
+
 function salvarNoLocalStorage() {
     localStorage.setItem("minhasCidades", JSON.stringify(cidadesFavoritas));
 }
@@ -140,6 +171,14 @@ async function consultarClima(lat, lon, nomeCidade, pais) {
 			: 'sistema/img/estrela.png';
 
 		const localFormatado = pais ? `${nomeCidade}, ${pais}` : nomeCidade;
+
+		switch(dados.current.weather_code) {
+			case 2:
+			case 3:
+				hoje.style.background = '#b4b09d';
+			default:
+				hoje.style.background = 'rgba(255, 255, 255, 0.85)';
+		}
 
 		hoje.innerHTML = `
 			<h2>Previsão do tempo para hoje em ${localFormatado}</h2>
