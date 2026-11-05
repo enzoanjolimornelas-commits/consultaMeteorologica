@@ -339,11 +339,22 @@ footer a {
 
     #proximos-dias > div {
         flex: 1 1 calc(50% - 16px);
+        flex-direction: column;
+        font-size: 0.8em;
+        text-align: justify;
+    }
+
+    #proximos-dias > img {
+        width: 10px;
+        height: 10px;
     }
 }
 
 @media (max-width: 480px) {
     #proximos-dias > div {
+        flex-direction: row;
         flex: 1 1 100%;
+        font-size: 0.7em;
+        text-align: justify;
     }
 }

@@ -226,7 +226,8 @@ async function consultarClima(lat, lon, nomeCidade, pais) {
 			const dataCurta = dataObj.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
 
 			proxDias.innerHTML += `
-				<div>
+				<div class='diasProximos'>
+					<img src='${estiloClima[dados.daily.weather_code[i]]}'>
 					<p><strong>${diaFormatado}</strong> (${dataCurta})</p>
 					<div>De ${dados.daily.temperature_2m_min[i]}°C a ${dados.daily.temperature_2m_max[i]}°C</div>
 					<div>Probabilidade de precipitação: ${textoPrecipitacao}</div>
